@@ -1,13 +1,23 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import OucherLogo from '../images/logoImage.png';
 import icon1 from "../images/icon1.jpg";
 import icon2 from "../images/icon2.jpg";
 import icon3 from "../images/icon3.jpg";
 import Banner from "../images/banner.jpg";
 import rightArrow from "../images/right-arrow.png";
-import Arrow from "../images/arrow.png";
+// import { setInputValue } from './reducer';
 
 const Template = () => {
+
+  const inputValue = useSelector(state => state.inputValue)
+  const dispatch = useDispatch();
+
+  function handleChange(e) {
+    dispatch({ type: 'SET_INPUT_VALUE', payload: e.target.value })
+    // setInputValue(e.target.value);
+  }
+
   return (
     <>
       <div className="wmg-container main-navbar">
@@ -67,7 +77,7 @@ const Template = () => {
               <img src={Banner} alt="" />
             </div>
             <div className="input-demo-call">
-              <input className="demo-input" type="text" placeholder="Book demo call" />
+              <input value={inputValue} onChange={handleChange} className="demo-input" type="text" id="name" placeholder="Book demo call" />
               <img className="demo-input-button" src={rightArrow} alt="" />
             </div>
             <div className="dynamic-dots">
