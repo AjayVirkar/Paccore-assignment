@@ -324,3 +324,17 @@ html {
     background-color: transparent;
     transform: rotate(-45deg);
 }
+
+.showMessage{
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 92px;
+  margin-left: 55px;
+  width: 500px;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  padding-top: 20px;
+  border-radius: 10px;
+}

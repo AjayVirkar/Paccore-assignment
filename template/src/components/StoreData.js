@@ -4,8 +4,10 @@ const ShowInputValueComponent = () => {
   const inputValue = useSelector(state => state.inputValue);
 
   return (
-    <div>
-      <p>The input value is: {inputValue}</p>
+    <div>{
+      inputValue &&
+      <div className='showMessage'>The input value is: {inputValue}</div>
+    }
     </div>
   );
 };
