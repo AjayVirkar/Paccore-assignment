@@ -9,14 +9,22 @@ import rightArrow from "../images/right-arrow.png";
 
 const Template = () => {
   const [text, setText] = useState("");
+  const [text1, setText1] = useState("");
   const dispatch = useDispatch();
 
   function handleChange(event) {
     setText(event.target.value);
   }
+  function handleChange1(event) {
+    setText1(event.target.value);
+  }
   function handleClick() {
-    dispatch({ type: 'SET_INPUT_VALUE', payload: text });
-    setText("")
+    // console.log(text)
+    // console.log(text1)
+    dispatch({ type: 'SET_FIRSTNAME', payload: text });
+    dispatch({ type: 'SET_LASTNAME', payload: text1 });
+    setText("");
+    setText1("");
   }
 
   return (
@@ -78,7 +86,8 @@ const Template = () => {
               <img src={Banner} alt="" />
             </div>
             <div className="input-demo-call">
-              <input value={text} onChange={handleChange} className="demo-input" type="text" id="name" placeholder="Book demo call" />
+              <input value={text} onChange={handleChange} className="demo-input" type="text" id="name" placeholder="First name" />
+              <input value={text1} onChange={handleChange1} className="demo-input" type="text" id="name1" placeholder="Last name" />
               <img onClick={handleClick} className="demo-input-button" src={rightArrow} alt="" />
             </div>
             <div className="dynamic-dots">
